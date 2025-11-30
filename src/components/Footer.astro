@@ -1,0 +1,24 @@
+---
+const { class: className } = Astro.props;
+---
+
+<footer class={`rounded-lg shadow m-4 bg-black/20 backdrop-blur-lg w-full lg:w-[700px] mx-auto mb-10 ${className}`}>
+    <div 
+    class="w-full flex flex-col items-start gap-y-2 mx-auto max-w-7xl p-4 md:flex md:items-center md:justify-between"
+    >
+      <span 
+        class="text-sm text-gray-600 sm:text-center"
+        >© 2025 <a 
+        href="linkedinhttps://www.linkedin.com/in/gabriel-co-fernandez/" class="hover:underline hover:text-white transition duration-200 ease-in-out"
+        >Gabriel Fernandez</a>. Casi todos los derechos reservados
+      </span>
+      <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-600 sm:mt-0">
+          <li>
+              <a href="#" class="hover:underline hover:text-white transition duration-200 ease-in-out me-4 md:me-6">Sobre mi</a>
+          </li>
+          <li>
+              <a href="#" class="hover:underline hover:text-white transition duration-200 ease-in-out">Contacto</a>
+          </li>
+      </ul>
+    </div>
+</footer>

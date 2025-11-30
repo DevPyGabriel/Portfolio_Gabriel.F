@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Badge from '../components/Badge.astro';
+import Linkedin from '../icons/Linkedin.astro';
+import BriefcaseIcon from '../icons/BriefcaseIcon.astro';
+import SocialPill from '../components/SocialPill.astro';
+import GitHub from '../icons/GitHub.astro';
+import Mail from '../icons/Mail.astro';
+import CodeIcon from '../icons/CodeIcon.astro';
+import Experience from '../components/Experience.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import Projects from '../components/Projects.astro';
+---
+
+<Layout 
+title='Portfolio de Gabriel.F - Desarrollador Web y Diseñador UI & UX'
+description="Conoce a Gabriel Fernandez un desarrollador web y diseñador UI & UX apasionado por crear experiencias digitales intuitivas y visualmente atractivas."
+>
+	<main class="px-4 sm:px-8">
+		<SectionContainer id="hero" class="pt-50 pb-24">
+			<h1 class="text-white text-3xl md:text-5xl lg:text-6xl font-bold flex 
+			flex-row gap-x-4 pb-6 lg:pb-10 tracking-tight">
+				Hey, soy Gabriel !
+				<a 
+				rel="noopener"
+				class="flex justify-center items-center tracking-normal"
+				href="https://www.linkedin.com/in/gabriel-co-fernandez/" 
+				target="_blank">
+				<Badge>Disponible</Badge>
+				</a>
+			</h1>
+			<h2 class="text-normal font-light lg:text-lg text-wrap max-w-[700px]">
+				<span class="text-gray-500">Aspirante a</span> <span class="text-yellow-200/90">
+					Desarrollador Web y Diseñador UI & UX </span>
+				<span class="text-gray-500">
+					de 
+					19 años, actualmente cursando la carrera de Informática, lo que 
+					me proporciona una sólida base 
+					académica mientras avanzo hacia la 
+				</span><span class="text-yellow-200/90">creación de interfaces</span> 
+				<span class="text-gray-500">digitales intuitivas y visualmente atractivas.</span> Enfocado 
+				en la usabilidad y la experiencia del usuario.
+			</h2>
+
+			<nav class="flex gap-2 mt-4 flex-wrap">
+				<SocialPill 
+				href="https://www.linkedin.com/in/gabriel-co-fernandez/">
+					<Linkedin class="size-4 md:size-6" />
+					Linkedin
+				</SocialPill>
+
+				<SocialPill 
+				href="https://www.linkedin.com/in/gabriel-co-fernandez/">
+					<GitHub class="size-4 md:size-6" />
+					GitHub
+				</SocialPill>
+
+				<SocialPill href="mailto:gabriel.co.fernandez@gmail.com">
+					<Mail class="size-4 md:size-6" />
+						gabriel.co.fernandez@gmail.com
+				</SocialPill>
+			</nav>
+		</SectionContainer>
+
+		<SectionContainer id="experience">
+			<h2 class="text-3xl font-semibold mb-4 flex items-center gap-x-2">
+				<BriefcaseIcon class="size-7" />
+				Experiencia
+			</h2>
+			<Experience />
+		</SectionContainer>
+
+		<SectionContainer id="proyectos">
+			<h2 class="text-3xl font-semibold mb-4 flex items-center gap-x-2">
+				<CodeIcon class="size-7" />
+				Proyectos
+			</h2>
+			<Projects />
+		</SectionContainer>		
+
+	</main>
+</Layout>

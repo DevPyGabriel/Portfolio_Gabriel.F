@@ -1,0 +1,36 @@
+---
+import ExperienceItem from '../icons/ExperienceItem.astro';
+const EXPERIENCE = [
+  {
+    date: 'Actualmente...',
+    title: 'Sistema de Informacion para Torneos de Karate',
+    description: `Desarrollando un tablero de arbitraje para la asignacion de puntos y paneles administrativos para la gestion de datos a tiempo real en los combates de Karate de la modalidad 'Kumite' utilizando React para el frontend y Python + Flask para el backend.`,
+    link: '#',
+  },
+  {
+    date: 'Octubre 2025',
+    title: 'Diseño de flyer para promocion de servicios',
+    description: `Creacion de un flyer publicitario en busca de captar clientes que necesiten servicios de ChatGPT+ IA generativa para optimizar sus negocios.`,
+  },
+  {
+    date: 'April 2022',
+    title: 'E-Commerce UI code in Tailwind CSS',
+    description: `Get started with dozens of web components and interactive elements built on top of Tailwind CSS.`,
+  },
+]
+---
+
+<ol class="w-full lg:w-8/12">
+  {
+    EXPERIENCE.map(experience => (
+      <li class="mb-10 ms-3">
+        <ExperienceItem 
+          date={experience.date}
+          title={experience.title}
+          description={experience.description}
+          link={experience.link}>
+        </ExperienceItem>
+      </li>
+    ))
+  }
+</ol>

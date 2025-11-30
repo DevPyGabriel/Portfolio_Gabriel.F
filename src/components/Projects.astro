@@ -1,0 +1,82 @@
+---
+import FigmaIcon from '../icons/FigmaIcon.astro';
+import Python from '../icons/Python.astro';
+import React from '../icons/React.astro';
+import Flask from '../icons/Flask.astro';
+import Bootstrap from '../icons/Bootstrap.astro';
+
+const TAGS = {
+  FIGMA: {
+    name: 'Figma',
+    class: 'bg-white/10',
+    icon: FigmaIcon,
+  },
+
+  PYTHON: {
+    name: 'Python',
+    class: 'bg-white/10',
+    icon: Python,
+  },
+
+  REACT: {
+    name: 'React',
+    class: 'bg-white/10',
+    icon: React,
+  },
+
+  FLASK: {
+    name: 'Flask',
+    class: 'bg-white/10',
+    icon: Flask,
+  },
+
+  BOOTSTRAP: {
+    name: 'Bootstrap',
+    class: 'bg-white/10',
+    icon: Bootstrap,
+  },
+}
+
+const PROJECTS = [
+  {
+    title: 'Sistema de Informacion para Torneos de Karate',
+    description: 'Desarrollo de tablero de arbitraje para la asignacion de puntos y paneles administrativos para la gestion de datos a tiempo real en los combates de Karate de la modalidad "Kumite" en conjunto con mi compañero de equipo. Mi rol principal fue el diseño de la interfaz y el desarrollo de la API REST utilizando Flask.',
+    image: '/public/projects/chatgpt.webp',
+    link: '',
+    tags: [TAGS.BOOTSTRAP, TAGS.REACT, TAGS.PYTHON, TAGS.FLASK],
+  }
+];
+---
+
+{
+  PROJECTS.map(({image, title, description, tags}) => (
+    <article class="flex flex-col gap-y-4">
+      <h3
+      class="text-2xl font-semibold text text-sky-200/70"
+      >
+        {title}
+      </h3>
+
+      <p
+      class="text-gray-500 text-pretty"
+      >
+        {description}
+      </p>
+      <ul class="flex gap-x-3 flex-row ">
+        {tags.map((tag => (
+          <li>
+            <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} px-2 py-1`}>
+              <tag.icon class="size-4"/>
+              {tag.name}
+            </span>
+          </li>
+        )))}
+      </ul>
+      <img 
+      class="rounded-xl shadow-2xl shadow-slate-900/50 border border-gray-600/20"
+      src={image} 
+      alt={`Captura de pantalla del proyecto ${title}`} 
+      />
+    </article>
+  ))
+}
