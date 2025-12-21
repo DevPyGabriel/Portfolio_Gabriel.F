@@ -13,12 +13,12 @@ import Projects from '../components/Projects.astro';
 ---
 
 <Layout 
-title='Portfolio de Gabriel.F - Desarrollador Web y Diseñador UI & UX'
+title='Portafolio de Gabriel Fernandez - Desarrollador Web y Diseñador UI & UX'
 description="Conoce a Gabriel Fernandez un desarrollador web y diseñador UI & UX apasionado por crear experiencias digitales intuitivas y visualmente atractivas."
 >
 	<main class="px-4 sm:px-8">
 		<SectionContainer id="" class="pt-36 pb-24">
-			<h1 class="text-white text-3xl md:text-5xl lg:text-6xl font-bold flex 
+			<h1 id="hero-title" class="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold flex 
 			flex-row gap-x-4 pb-6 lg:pb-10 tracking-tight">
 				Hey, soy Gabriel !
 				<a 
@@ -29,7 +29,7 @@ description="Conoce a Gabriel Fernandez un desarrollador web y diseñador UI & U
 				<Badge>Disponible</Badge>
 				</a>
 			</h1>
-			<h2 class="text-normal font-light lg:text-lg text-wrap max-w-[700px]">
+			<h2 id="hero-subtitle" class="text-normal font-light lg:text-lg text-wrap max-w-[700px]">
 				<span class="text-gray-500">Aspirante a</span> <span class="text-yellow-200/90">
 					Desarrollador Web y Diseñador UI & UX </span>
 				<span class="text-gray-500">
@@ -42,7 +42,7 @@ description="Conoce a Gabriel Fernandez un desarrollador web y diseñador UI & U
 				en la usabilidad y la experiencia del usuario.
 			</h2>
 
-			<nav class="flex gap-2 mt-4 flex-wrap">
+			<nav id="hero-nav" class="flex gap-2 mt-4 flex-wrap">
 				<SocialPill 
 				href="https://www.linkedin.com/in/gabriel-co-fernandez/">
 					<Linkedin class="size-4 md:size-6" />
@@ -79,4 +79,60 @@ description="Conoce a Gabriel Fernandez un desarrollador web y diseñador UI & U
 		</SectionContainer>		
 
 	</main>
+
+	<script>
+		import { gsap } from 'gsap';
+		import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+		// Registrar el plugin de ScrollTrigger
+		gsap.registerPlugin(ScrollTrigger);
+
+		// Esperar a que el DOM esté listo
+		document.addEventListener('DOMContentLoaded', () => {
+			// Animación de entrada para el hero
+			const heroTitle = document.querySelector('#hero-title');
+			const heroSubtitle = document.querySelector('#hero-subtitle');
+			const heroNav = document.querySelector('#hero-nav');
+
+			if (heroTitle && heroSubtitle && heroNav) {
+				const heroTimeline = gsap.timeline();
+
+				heroTimeline
+					.from(heroTitle, {
+						opacity: 0,
+						y: 50,
+						duration: 0.8,
+						ease: 'power3.out'
+					})
+					.from(heroSubtitle, {
+						opacity: 0,
+						y: 30,
+						duration: 0.6,
+						ease: 'power2.out'
+					}, '-=0.4')
+					.from(heroNav, {
+						opacity: 0,
+						y: 20,
+						duration: 0.5,
+						ease: 'power2.out'
+					}, '-=0.3');
+			}
+
+			// Animación para las secciones al hacer scroll
+			const sections = document.querySelectorAll('section');
+			sections.forEach((section) => {
+				gsap.from(section, {
+					opacity: 0,
+					y: 30,
+					duration: 1,
+					ease: 'power3.out',
+					scrollTrigger: {
+						trigger: section,
+						start: 'top 80%',
+						toggleActions: 'play none none none'
+					}
+				});
+			});
+		});
+	</script>
 </Layout>
