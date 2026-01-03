@@ -13,13 +13,45 @@ const { description, title } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={description} />
+		<meta name="generator" content="Astro" />
+		<meta name="description" content={description} />
+		<meta name="keywords" content="desarrollador web, diseñador UI UX, portafolio, Gabriel Fernandez, frontend, backend, diseño de interfaces" />
 		<title>{title}</title>
+		<link rel="canonical" href={Astro.url} />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/og-image.jpg" /> <!-- Add an og-image.jpg in public/ -->
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content="/og-image.jpg" />
+
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": "Gabriel Fernandez",
+			"jobTitle": "Desarrollador Web y Diseñador UI & UX",
+			"url": "https://porfolio-gabriel-desarrollador-web.netlify.app",
+			"sameAs": [
+				"https://www.linkedin.com/in/gabriel-co-fernandez/",
+				"https://github.com/your-github" // Replace with actual GitHub
+			],
+			"description": {description}
+		}
+		</script>
 	</head>
 
 	<body>
